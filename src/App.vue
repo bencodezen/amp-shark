@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-ignore
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { onKeyStroke } from '@vueuse/core'
