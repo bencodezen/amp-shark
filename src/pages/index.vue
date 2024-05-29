@@ -44,9 +44,6 @@ function startGame() {
       </li>
       <li>
         <RouterLink to="/sign-in" class="nes-btn"> Sign-in </RouterLink>
-        <button class="nes-btn" @click="awsAuthenticator.signOut">
-          Sign Out
-        </button>
       </li>
     </ul>
   </div>
