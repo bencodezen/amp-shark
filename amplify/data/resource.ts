@@ -12,7 +12,7 @@ const schema = a.schema({
       handle: a.string(),
       time: a.integer() // milliseconds
     })
-    .authorization(allow => [allow.publicApiKey()])
+    .authorization(allow => [allow.guest().to(['read']), allow.owner()])
 })
 
 export type Schema = ClientSchema<typeof schema>

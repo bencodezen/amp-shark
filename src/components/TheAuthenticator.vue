@@ -6,12 +6,12 @@ import outputs from '../../amplify_outputs.json'
 Amplify.configure(outputs)
 
 const authenticatorOptions = {
-  signUp: {
-    username: {
-      placeholder: 'Enter your username',
-      order: 1
-    }
-  }
+  // signUp: {
+  //   username: {
+  //     placeholder: 'Enter your username',
+  //     order: 1
+  //   }
+  // }
 }
 </script>
 
