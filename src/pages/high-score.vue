@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import TheScoreboard from '@/components/TheScoreboard.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main>
