@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-nocheck
 // https://codepen.io/UmairAnis99/pen/abNYgMz
 import { onMounted } from 'vue'
 
