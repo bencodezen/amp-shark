@@ -10,6 +10,11 @@ const app = createApp(App)
 import { router } from '@/router'
 app.use(router)
 
+// Pinia
+import { createPinia } from 'pinia'
+const pinia = createPinia()
+app.use(pinia)
+
 Amplify.configure(outputs)
 
 app.mount('#app')
