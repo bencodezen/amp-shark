@@ -4,6 +4,7 @@
   <main>
     <h1>Play Game</h1>
     <TheTimer />
+    <RouterView />
   </main>
 </template>
 

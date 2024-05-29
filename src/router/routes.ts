@@ -12,10 +12,12 @@ export default [
   },
   {
     path: '/play',
-    component: () => import('@/pages/play/index.vue')
-  },
-  {
-    path: '/round-:id',
-    component: () => import('@/pages/play/round-[id].vue')
+    component: () => import('@/pages/play/index.vue'),
+    children: [
+      {
+        path: 'round-:id',
+        component: () => import('@/pages/play/round-[id].vue')
+      }
+    ]
   }
 ]
