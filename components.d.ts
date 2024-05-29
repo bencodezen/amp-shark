@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ArrowControl: typeof import('./src/components/ArrowControl.vue')['default']
     ArrowSymbol: typeof import('./src/components/ArrowSymbol.vue')['default']
+    Complete: typeof import('./src/pages/play/complete.vue')['default']
     GamePlay: typeof import('./src/components/GamePlay.vue')['default']
     HighScore: typeof import('./src/pages/high-score.vue')['default']
     Pages: typeof import('./src/pages/index.vue')['default']

@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 let startStopFn: any
 
@@ -8,6 +8,10 @@ const ms = ref(0)
 const s = ref(0)
 const m = ref(0)
 const h = ref(0)
+
+const totalTimeInMs = computed(() => {
+  return h.value * 3600000 + m.value * 60000 + s.value * 1000 + ms.value
+})
 
 function startStopTimer() {
   if (ctaState.value === 'Stop') {
@@ -56,5 +60,6 @@ export default {
   m,
   h,
   resetTimer,
-  startStopTimer
+  startStopTimer,
+  totalTimeInMs
 }

@@ -1,10 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { onKeyStroke } from '@vueuse/core'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
+const router = useRouter()
 const sequencePosition = ref(0)
 const validKeys = ref(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'])
 const roundSequence = ref(generateArrowSequence())
+const nextRound = computed(() => {
+  return Number(route.params.id) + 1
+})
+
+const endOfRound = computed(
+  () => sequencePosition.value === roundSequence.value.length
+)
+
+const endOfGame = computed(() => {
+  return nextRound.value > 3
+})
 
 function checkArrowSequence(key: string) {
   if (key === roundSequence.value[sequencePosition.value][0]) {
@@ -40,6 +54,21 @@ onKeyStroke(true, e => {
   checkArrowSequence(e.key)
   console.log(roundSequence.value)
   generateArrowColor(e.key, roundSequence.value[sequencePosition.value][0])
+})
+
+watch(endOfRound, value => {
+  if (endOfGame.value) {
+    console.log('End of game')
+    router.push('/play/complete')
+  }
+
+  if (value) {
+    console.log('End of round')
+    console.log(Number(route.params.id) + 1)
+    router.push(`/play/round-${nextRound.value}`)
+    sequencePosition.value = 0
+    roundSequence.value = generateArrowSequence()
+  }
 })
 </script>
 

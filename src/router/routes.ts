@@ -15,6 +15,10 @@ export default [
     component: () => import('@/pages/play/index.vue'),
     children: [
       {
+        path: 'complete',
+        component: () => import('@/pages/play/complete.vue')
+      },
+      {
         path: 'round-:id',
         component: () => import('@/pages/play/round-[id].vue')
       }
