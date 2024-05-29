@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@aws-amplify/ui-vue": "^4.2.8",
     "aws-amplify": "^6.2.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
