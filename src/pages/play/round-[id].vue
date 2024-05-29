@@ -19,6 +19,7 @@ const sequence = ref([
 
 <template>
   <p>{{ route }}</p>
+  <GamePlay />
   <ul style="display: flex">
     <li v-for="arrow in sequence">
       <ArrowSymbol :direction="arrow.substring(5).toLowerCase()" color="#ccc" />

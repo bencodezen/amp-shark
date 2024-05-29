@@ -1,5 +1,5 @@
 <script setup lang="ts">
-withDefaults(
+const props = withDefaults(
   defineProps<{
     color: string
     direction: string
@@ -9,11 +9,15 @@ withDefaults(
     direction: 'up'
   }
 )
+
+const simplifiedDirection = computed(() => {
+  return props.direction.substring(5).toLowerCase()
+})
 </script>
 
 <template>
   <svg
-    :class="`is-${direction}`"
+    :class="`is-${simplifiedDirection}`"
     width="120"
     height="120"
     fill="none"
