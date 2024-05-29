@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Scoreboard from '@/components/Scoreboard.vue'
+import TheScoreboard from '@/components/TheScoreboard.vue'
 </script>
 
 <template>
   <main>
     <h1>High Score</h1>
-    <Scoreboard />
+    <TheScoreboard />
   </main>
 </template>
 
