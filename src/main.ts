@@ -15,6 +15,11 @@ import { createPinia } from 'pinia'
 const pinia = createPinia()
 app.use(pinia)
 
+// @unhead/vue
+import { createHead } from '@unhead/vue'
+const head = createHead()
+app.use(head)
+
 Amplify.configure(outputs)
 
 app.mount('#app')
