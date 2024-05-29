@@ -3,6 +3,7 @@
 <template>
   <main>
     <h1>Play Game</h1>
+    <TheTimer />
   </main>
 </template>
 
