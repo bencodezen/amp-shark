@@ -1,30 +1,13 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
-const validKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
-const sequence = ref([
-  'ArrowUp',
-  'ArrowUp',
-  'ArrowDown',
-  'ArrowDown',
-  'ArrowLeft',
-  'ArrowRight',
-  'ArrowLeft',
-  'ArrowRight'
-])
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <p>{{ route }}</p>
-  <GamePlay />
-  <ul style="display: flex">
-    <li v-for="arrow in sequence">
-      <ArrowSymbol :direction="arrow.substring(5).toLowerCase()" color="#ccc" />
-    </li>
-  </ul>
+  <section class="game-round-section">
+    <GamePlay />
+  </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.game-round-section {
+  margin-top: 30px;
+}
+</style>

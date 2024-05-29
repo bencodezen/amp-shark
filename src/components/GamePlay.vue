@@ -2,9 +2,12 @@
 import { computed, ref, watch } from 'vue'
 import { onKeyStroke } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
+import { useGameStore } from '@/stores/GameStore'
 
 const route = useRoute()
 const router = useRouter()
+const gameStore = useGameStore()
+
 const sequencePosition = ref(0)
 const validKeys = ref(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'])
 const roundSequence = ref(generateArrowSequence())
@@ -59,6 +62,7 @@ onKeyStroke(true, e => {
 watch(endOfRound, value => {
   if (endOfGame.value) {
     console.log('End of game')
+    gameStore.setGameState('Complete')
     router.push('/play/complete')
   }
 

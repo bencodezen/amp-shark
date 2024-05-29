@@ -4,10 +4,12 @@
 
 import { useRouter } from 'vue-router'
 import timer from '@/composables/useTimer'
+import { useGameStore } from '@/stores/GameStore'
 
 const router = useRouter()
+const gameStore = useGameStore()
 
-const { ctaState, h, m, s, ms, startStopTimer, resetTimer } = timer
+const { ctaState, h, m, s, ms, startStopTimer } = timer
 
 async function startGame() {
   await router.push('/play/round-1')
@@ -20,27 +22,36 @@ function formatTimeUnit(timeUnit) {
     useGrouping: false
   })
 }
-
-console.log(timer)
 </script>
 
 <template>
   <div>
-    <h1>The Timer</h1>
     <div class="container">
-      <h1 class="title">Stopwatch</h1>
       <div class="timer">
         {{ formatTimeUnit(h) }} : {{ formatTimeUnit(m) }} :
         {{ formatTimeUnit(s) }} : {{ formatTimeUnit(ms) }}
       </div>
-      <div class="buttonsBlock">
-        <button @click="startGame" type="button">
-          {{ ctaState }}
-        </button>
-        <button @click="resetTimer" type="button">Reset</button>
-      </div>
+      <button
+        v-if="gameStore.gameState !== 'Complete'"
+        @click="startGame"
+        class="nes-btn is-primary"
+      >
+        {{ ctaState }}
+      </button>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+</style>
