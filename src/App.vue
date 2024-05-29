@@ -1,11 +1,10 @@
 <script setup lang="ts">
 // @ts-ignore
 import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { onKeyStroke } from '@vueuse/core'
 
 const route = useRoute()
-const router = useRouter()
 
 const cheatPosition = ref(0)
 const konami = ref([
