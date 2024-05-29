@@ -28,8 +28,8 @@ function checkArrowSequence(key: string) {
     roundSequence.value[sequencePosition.value][1] = true
     sequencePosition.value++
   } else {
-    console.log('Game over')
     roundSequence.value[sequencePosition.value][1] = false
+    roundSequence.value = generateArrowSequence()
     sequencePosition.value = 0
   }
 }
@@ -55,20 +55,16 @@ function generateArrowColor(state: boolean | null) {
 
 onKeyStroke(true, e => {
   checkArrowSequence(e.key)
-  console.log(roundSequence.value)
   generateArrowColor(e.key, roundSequence.value[sequencePosition.value][0])
 })
 
 watch(endOfRound, value => {
   if (endOfGame.value) {
-    console.log('End of game')
     gameStore.setGameState('Complete')
     router.push('/play/complete')
   }
 
   if (value) {
-    console.log('End of round')
-    console.log(Number(route.params.id) + 1)
     router.push(`/play/round-${nextRound.value}`)
     sequencePosition.value = 0
     roundSequence.value = generateArrowSequence()
